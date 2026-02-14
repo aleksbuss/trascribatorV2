@@ -180,7 +180,8 @@
     </div>
 
     <script>
-        // ⚠️ ЗАМЕНИТЕ НА ВАШ URL из Cloudflare
+        // ⚠️ ЗАМЕНИТЕ НА ИМЯ ВАШЕГО CLOUDFLARE WORKER!
+        // Например: https://transcribator.ваш-аккаунт.workers.dev
         const BACKEND_URL = 'https://trascribatorv2.aleksbuss.workers.dev';
         
         const tg = window.Telegram.WebApp;
@@ -273,7 +274,7 @@
                         copyToClipboard(data.text);
                         tg.HapticFeedback.notificationOccurred('success');
                     } else {
-                        throw new Error(data.error);
+                        throw new Error(data.error || data.message);
                     }
                 };
                 
